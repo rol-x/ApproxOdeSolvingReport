@@ -214,7 +214,7 @@ It can be seen, again, that there is not much difference between step 0.1 and 0.
 
 \subsection{Results commentary}
 
-Both Euler-Cauchy and Runge-Kutta methods were easy to implement and are not very resource- nor time-consuming. At first glance the noticeable differences between these two methods restrict themselves to the number of lines of code used in the main iteration loop (3 and 6, respectively) and the slight separation of approximation curves in Euler-Cauchy, which may signify lower accuracy. Thus, the reader is advised to try both methods on their own, as so far most of the conclusions concerning the differences between the methods has appeared as feelings and therefore cannot be easily transcribed.
+Both Euler-Cauchy and Runge-Kutta methods were easy to implement and are not very resource- nor time-consuming. At first glance the noticeable differences between these two methods are the number of lines of code used in the main iteration loop (3 and 6, respectively) and the slight separation of approximation curves in Euler-Cauchy, which may signify lower accuracy. Thus, the reader is advised to try both methods on their own, as so far most of the conclusions concerning the differences between the methods have appeared as feelings and therefore cannot be easily transcribed.
 
 \section{Solving Equation (\ref{SODE}) using Runge-Kutta method}
 The second order differential equation (\ref{SODE}) can be rewritten as presented:
@@ -230,7 +230,7 @@ Using a simple substitution, a system of first order differential equations is o
     \end{cases}
 \end{gather}
 
-Solving this system using fourth order Runge-Kutta method yields promising results, with better and better approximation of the $y$ function, as $h$ gets smaller and smaller (Fig \ref{fig:runge_kutta_sode}).
+Solving this system using fourth order Runge-Kutta method yields accurate results, with better and better approximation of the $y$ function, as $h$ gets smaller and smaller (Fig \ref{fig:runge_kutta_sode}).
 
 \begin{figure}[H]
     \centering
@@ -267,7 +267,7 @@ Using any numerical integration method, the differences between the approximatin
 
 Therefore, $M(A, y)$ returns the total space in between $A$ and $y$ on $[x_0, x_n]$ interval. It's worth noting, that
 \begin{gather*}
-    \lim_{A \to y} M(A, y) = 0 \iff \lim_{M(A, y) \to 0} A = y.
+    \lim_{A \to y} M(A, y) = 0\quad \text{and}\quad \lim_{M(A, y) \to 0} A = y.
 \end{gather*}
 
 Comparing Euler-Cauchy and Runge-Kutta methods with this approach, with $0.01 \leq h \leq 0.3$, yields results visible in Fig \ref{fig:error_1}. Since Euler-Cauchy method is unstable (the error is propagated with each iteration), there is no point in considering $h > 0.3$, as the values of errors rise, rendering the Runge-Kutta method errors insignificant.
@@ -293,7 +293,7 @@ Applying function $M$ for approximations of $y$ in relation to the integration s
     \label{fig:error_2}
 \end{figure}
 
-The Runge-Kutta method rises far more slowly than Euler-Cauchy, even when used for solving second order differential equations through substitution. The error near $h = 0$ is as little, as it is near $h = 0.2$, which signifies great accuracy. 
+The Runge-Kutta method rises far more slowly than Euler-Cauchy, even when used for solving second order differential equations through substitution. We observe the error at $h = 0.2$ is almost as small as at $h = 0$. 
 
 \section{Conclusions}
 Implementation of selected methods for solving ordinary differential equations was easy and pleasurable. No obstacles were faced and the approaches resulted in successful approximation of the $y$ functions. The Euler-Cauchy method was the simplest, requiring the least amount of memory, time and lines of code --- however, as an unstable method, the error was being propagated through every iteration. This characteristic could be observed in the comparison between the errors of two methods: Euler-Cauchy and Runge-Kutta, in section 4. The latter alogrithm was found to be superior. As comes to solving second order differential equations, the Runge-Kutta method was more than suitable, and combined with converting the equation into a system of first order differential equations, yielded approximations of great accuracy, as could be concluded from error analysis. The exercise, as it is stated in subsection 1.1 and performed in this report, is recommended to anyone in need for a good fun combined with a bit of education.
